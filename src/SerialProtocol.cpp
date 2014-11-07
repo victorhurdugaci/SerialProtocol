@@ -9,8 +9,8 @@
     Data         (DataLength bytes)  - Actual payload
     Checksum     (1 byte)            - Message integrity check
 
-    Total message size = (payload size + 3) bytes; 
-*/
+    Total message size = (payload size + 3) bytes;
+    */
 
 const uint8_t START_BYTE = 'S';
 
@@ -25,7 +25,8 @@ SerialProtocol::SerialProtocol(HardwareSerial* serial, uint8_t* payload, uint8_t
     setSerial(serial);
 }
 
-void SerialProtocol::setSerial(HardwareSerial* serial) {
+void SerialProtocol::setSerial(HardwareSerial* serial)
+{
     this->serial = serial;
 }
 
@@ -44,7 +45,8 @@ uint8_t SerialProtocol::send()
     serial->write(payloadSize);
 
     // Write the payload
-    for (int i = 0; i < payloadSize; i++){
+    for (int i = 0; i < payloadSize; i++)
+    {
         checksum ^= *(payload + i);
         serial->write(*(payload + i));
     }
@@ -77,17 +79,20 @@ uint8_t SerialProtocol::receive()
     {
         data = serial->read();
 
-        if (data == -1) {
+        if (data == -1) 
+        {
             // No more data
             return ProtocolState::WAITING_FOR_DATA;
         }
 
-        if (bytesRead >= payloadSize) {
+        if (bytesRead >= payloadSize) 
+        {
             // We are done with the payload
-            
+
             // Before we can be done, we need the
             // checksum to match
-            if (actualChecksum != data) {
+            if (actualChecksum != data)
+            {
                 resetInput();
                 return ProtocolState::INVALID_CHECKSUM;
             }
@@ -104,7 +109,7 @@ uint8_t SerialProtocol::receive()
 
 }
 
-void SerialProtocol::resetInput() 
+void SerialProtocol::resetInput()
 {
     bytesRead = 0;
     actualChecksum = 0;
@@ -114,11 +119,11 @@ uint8_t SerialProtocol::canReadMessageBytes()
 {
     char data;
 
-    if (bytesRead > 0) 
+    if (bytesRead > 0)
     {
         // We are in a message but there might be no data to read
-        return serial->available() > 0 ? 
-            ProtocolState::SUCCESS : 
+        return serial->available() > 0 ?
+            ProtocolState::SUCCESS :
             ProtocolState::WAITING_FOR_DATA;
     }
 
@@ -129,45 +134,44 @@ uint8_t SerialProtocol::canReadMessageBytes()
     {
         data = serial->peek();
 
-        if (data == -1) 
+        if (data == -1)
         {
             // Nothing to do, empty buffer
             return ProtocolState::NO_DATA;
         }
 
-        if (data != START_BYTE) 
+        if (data != START_BYTE)
         {
             // Discard the data, not interesting
             serial->read();
+            continue;
         }
-        else 
+
+        // We have a possible known message but first let's see if
+        // there is enough data to start reading.
+        // We need at least 3 bytes (START_BYTE, length, one extra byte)
+        // otherwise we might skip messages
+        if (serial->available() < 3)
         {
-            // We have a possible known message but first let's see if
-            // there is enough data to start reading.
-            // We need at least 3 bytes (START_BYTE, length, one extra byte)
-            // otherwise we might skip messages
-            if (serial->available() < 3) 
-            {
-                return ProtocolState::WAITING_FOR_DATA;
-            }
-
-            // We have the needed bytes so we can read the header
-
-            // Discard the start byte
-            serial->read();
-
-            if (serial->read() != payloadSize) 
-            {
-                // We are trying to read something that is
-                // of different size that what the protocol
-                // expects
-                return ProtocolState::INVALID_SIZE;
-            }
-
-            actualChecksum = payloadSize;
-
-            // Good to go, you can start reading
-            return ProtocolState::SUCCESS;
+            return ProtocolState::WAITING_FOR_DATA;
         }
+
+        // We have the needed bytes so we can read the header
+
+        // Discard the start byte
+        serial->read();
+
+        if (serial->read() != payloadSize)
+        {
+            // We are trying to read something that is
+            // of different size that what the protocol
+            // expects
+            return ProtocolState::INVALID_SIZE;
+        }
+
+        actualChecksum = payloadSize;
+
+        // Good to go, you can start reading
+        return ProtocolState::SUCCESS;
     }
 }

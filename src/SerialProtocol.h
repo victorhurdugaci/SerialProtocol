@@ -6,7 +6,8 @@
 
 struct ProtocolState 
 {
-    enum Enum {
+    enum Enum 
+    {
         // The serial object was not set
         NO_SERIAL = 0,
 
