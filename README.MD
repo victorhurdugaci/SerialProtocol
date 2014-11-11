@@ -1,7 +1,7 @@
 Serial Protocol
 ======
 
-SerialProtocol is a protocol for sending data between two Arduino/Raspberry PI devices or between. It can even send data between Arduino and Raspberry PI.
+SerialProtocol is a protocol for sending data between two Arduino and/or Raspberry PI devices over serial.
 
 #### Message structure
 
