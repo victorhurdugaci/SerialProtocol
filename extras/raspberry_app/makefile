@@ -1,5 +1,5 @@
 TARGET = raspberry_app
-SERIAL_PROTOCOL_DIR = ../../src/SerialProtocol
+SERIAL_PROTOCOL_DIR = ../../extras/src/SerialProtocol
 
 CPP_SOURCES = $(SERIAL_PROTOCOL_DIR)/*.cpp $(TARGET).cpp
 
