@@ -1,7 +1,7 @@
-Serial Protocol
+Arduino Serial Protocol
 ======
 
-SerialProtocol is a protocol for sending data between two Arduino and/or Raspberry PI devices over serial.
+ArduinoSerialProtocol is a protocol for sending data between two Arduino and/or Raspberry PI devices over serial.
 
 #### Message structure
 
@@ -14,13 +14,7 @@ Total message size (bytes): Payload + 3
 
 #### Install Arduino Libraries
 
-Copy the `src\SerialProtocol` folder to:
-
-- Windows: `%USERPROFILE%\Victor\Documents\Arduino`
-- Linux: `~/sketchbook/libraries` or `/usr/share/arduino/libraries`
-- Mac: `Documents/Arduino/libraries`
-
-Note: You must restart the Arduino IDE if it was running before you copied the files.
+Download the Repository, Go to Sketch>Include Library>Add .zip Library> Select the Downloaded .zip File.
 
 #### Samples
 
