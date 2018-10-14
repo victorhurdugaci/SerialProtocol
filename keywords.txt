@@ -5,7 +5,6 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-
 ArduinoSerialProtocol	KEYWORD1
 
 #######################################
@@ -13,8 +12,8 @@ ArduinoSerialProtocol	KEYWORD1
 #######################################
 sendData	KEYWORD2
 readData	KEYWORD2
-setSerial	KEYWORD2
-srialAvailable	KEYWORD2
+setSerial KEYWORD2
+srialAvailable  KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
@@ -24,4 +23,4 @@ NO_DATA	LITERAL1
 INVALID_SIZE	LITERAL1
 INVALID_CHECKSUM	LITERAL1
 WAITING_FOR_DATA	LITERAL1
-SUCCESS	LITERAL1
+SUCCESS LITERAL1
