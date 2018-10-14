@@ -14,11 +14,19 @@ Total message size (bytes): Payload + 3
 
 #### Install Arduino Libraries
 
-Download the Repository, Go to Sketch>Include Library>Add .zip Library> Select the Downloaded .zip File.
+1. Download the Repository as a .zip file. 
+2. In Arduino IDE, go to Sketch> Include Library> Add .zip Library.
+3. Select the Downloaded .zip File.
 
-#### Samples
+#### Examples
 
-The `samples` folder contains examples for both Arduino and Raspberry PI. If you upload the Arduino sketch and then run the Raspberry PI application, you should see the two devices exchanging a data structure with different numeric types.
+Arduino Instructions
+Open the `arduino_app` in the Arduino IDE and upload to your Arduino.  
+
+Raspberry Pi Instructions
+1. Clone this repository and navigate to the `SerialProtocol/extras/raspberry_app` folder. 
+2. Make the file `raspberry_app.cpp`
+3. Run the new file.  You should see the two devices exchanging a data structure with different numeric types.
 
 #### Acknowledgements
 
@@ -31,3 +39,7 @@ SerialProtocol is inspired by [Arduino-EasyTransfer](https://github.com/madsci10
 
 Copyright [Victor Hurdugaci](http://victorhurdugaci.com). All rights reserved.  
 Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+#### Contributors
+[Victor Hurdugaci](http://victorhurdugaci.com)
+[James Head](https://github.com/headHUB)
