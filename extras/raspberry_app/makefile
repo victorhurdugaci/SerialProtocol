@@ -11,4 +11,4 @@ clean:
 	rm $(TARGET)
 
 $(TARGET): 
-g++ -I$(SERIAL_PROTOCOL_DIR) $(CPP_SOURCES) -o $(TARGET)
+	g++ -I$(SERIAL_PROTOCOL_DIR) $(CPP_SOURCES) -o $(TARGET)
