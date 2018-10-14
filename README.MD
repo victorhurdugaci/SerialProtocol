@@ -44,4 +44,5 @@ Licensed under the Apache License, Version 2.0. See LICENSE in the project root 
 
 #### Contributors
 [Victor Hurdugaci](http://victorhurdugaci.com)
+
 [James Head](https://github.com/headHUB)
