@@ -1,5 +1,5 @@
 TARGET = raspberry_app
-SERIAL_PROTOCOL_DIR = ../../src/SerialProtocol
+SERIAL_PROTOCOL_DIR = ../../../
 
 CPP_SOURCES = $(SERIAL_PROTOCOL_DIR)/*.cpp $(TARGET).cpp
 
@@ -12,5 +12,3 @@ clean:
 
 $(TARGET): 
 	g++ -I$(SERIAL_PROTOCOL_DIR) $(CPP_SOURCES) -o $(TARGET)
-	
-

@@ -1,7 +1,7 @@
-Serial Protocol
+Arduino Serial Protocol
 ======
 
-SerialProtocol is a protocol for sending data between two Arduino and/or Raspberry PI devices over serial.
+ArduinoSerialProtocol is a protocol for sending data between two Arduino and/or Raspberry PI devices over serial.
 
 #### Message structure
 
@@ -14,17 +14,21 @@ Total message size (bytes): Payload + 3
 
 #### Install Arduino Libraries
 
-Copy the `src\SerialProtocol` folder to:
+1. Download the Repository as a .zip file. 
+2. In Arduino IDE, go to Sketch> Include Library> Add .zip Library.
+3. Select the Downloaded .zip File.
 
-- Windows: `%USERPROFILE%\Victor\Documents\Arduino`
-- Linux: `~/sketchbook/libraries` or `/usr/share/arduino/libraries`
-- Mac: `Documents/Arduino/libraries`
+#### Examples
 
-Note: You must restart the Arduino IDE if it was running before you copied the files.
+Arduino Instructions
 
-#### Samples
+Open the `arduino_app` in the Arduino IDE and upload to your Arduino.  
 
-The `samples` folder contains examples for both Arduino and Raspberry PI. If you upload the Arduino sketch and then run the Raspberry PI application, you should see the two devices exchanging a data structure with different numeric types.
+Raspberry Pi Instructions
+
+1. Clone this repository and navigate to the `SerialProtocol/extras/raspberry_app` folder. 
+2. Make the file `raspberry_app.cpp`
+3. Run the new file.  You should see the two devices exchanging a data structure with different numeric types.
 
 #### Acknowledgements
 
@@ -37,3 +41,8 @@ SerialProtocol is inspired by [Arduino-EasyTransfer](https://github.com/madsci10
 
 Copyright [Victor Hurdugaci](http://victorhurdugaci.com). All rights reserved.  
 Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+#### Contributors
+[Victor Hurdugaci](http://victorhurdugaci.com)
+
+[James Head](https://github.com/headHUB)
