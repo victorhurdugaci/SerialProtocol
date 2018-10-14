@@ -21,9 +21,11 @@ Total message size (bytes): Payload + 3
 #### Examples
 
 Arduino Instructions
+
 Open the `arduino_app` in the Arduino IDE and upload to your Arduino.  
 
 Raspberry Pi Instructions
+
 1. Clone this repository and navigate to the `SerialProtocol/extras/raspberry_app` folder. 
 2. Make the file `raspberry_app.cpp`
 3. Run the new file.  You should see the two devices exchanging a data structure with different numeric types.
